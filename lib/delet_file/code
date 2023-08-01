@@ -1,0 +1,419 @@
+
+            //   Center(
+
+            //     child: Column(
+            //       crossAxisAlignment: CrossAxisAlignment.start,
+            //       children: [
+            //         Form(
+            //           key: _key,
+            //             child: Column(
+            //               children: [
+            //                 Container(
+            //                   width:353,
+            //                   alignment: Alignment.bottomCenter,
+            //                   margin: const EdgeInsets.only(left: 19,top: 16,right: 20),
+            //                   decoration: const BoxDecoration(
+            //                     color: Colors.white,
+            //                   ),
+            //                   child: EmailValidationTextField(
+            //                     keyboardType: TextInputType.number,
+            //                     textEditingController: _control,
+            //                     cursorColor: Colors.black,
+            //                     whenTextFieldEmpty: 'Numéro de téléphone',
+            //                     validatorMassage: _errorControler? 'numéro valide':'numéro invalide',
+            //                     decoration: InputDecoration(
+            //                       isDense: true,
+            //                       fillColor: const Color(0xFFFFFF),
+            //                       filled: true,
+            //                       labelText: '',
+            //                       border: OutlineInputBorder(
+            //                         borderRadius: BorderRadius.circular(10),
+            //                         borderSide: const BorderSide(color: Colors.black12),
+            //                       ),
+            //                       errorBorder: OutlineInputBorder(
+            //                         borderRadius: BorderRadius.circular(10),
+            //                         borderSide: const BorderSide(color: Colors.black12),
+            //                       ),
+            //                       focusedErrorBorder: OutlineInputBorder(
+            //                         borderRadius: BorderRadius.circular(10),
+            //                         borderSide: const BorderSide(color: Colors.black12),
+            //                       ),
+            //                      // errorText: _errorControler? 'Require*':'numéro invalide',
+
+            //                     ),
+            //                     onSaved: (values){
+            //                       valeurText = values;
+            //                     },
+
+            //                     onChanged: (values){
+            //                       setState(() {
+            //                           _controller = values;
+            //                           if(_controller != null  && values.trim().isEmpty){
+
+
+            //                           }
+            //                           else if(!_controller.startsWith('07') || values!.length != 10){
+            //                               _errorControler = _errorControler ;
+            //                           }
+            //                           else{
+            //                             _griseButton =!_griseButton;
+            //                             _errorControler = !_errorControler ;
+            //                           }
+
+            //                       });
+            //                     },
+            //                   ),
+
+            //                 ),
+
+            //               ],
+            //             )),
+            //       ],
+            //     ),
+            //   ),
+
+
+
+
+
+
+
+                                      // sendSms(_control.text);
+                          // debugPrint('================== login');
+                          // debugPrint(_control.text);
+                          
+                          // Navigator.push(context, MaterialPageRoute(builder: (context)=> SendOtpSms()));
+
+
+                          // setState(() {
+                          //   _key.currentState!.save();
+                          //   Navigator.push(context, MaterialPageRoute(builder: (context){
+                          //     return HomeInputCode();
+                          //   }));
+                          // });
+
+
+
+
+
+
+
+
+                          
+
+                // Container(
+                //     margin: const EdgeInsets.all(20),
+                //    child: Form(
+                //      key: _key,
+                //      child: Column(
+                //        children: [
+                //          Container(
+                //            height: 50,
+                //            width: 361,
+                //            decoration: BoxDecoration(
+                //              borderRadius: BorderRadius.circular(5)
+                //            ),
+                //            child: TextFormField(
+                //              controller: _control,
+                //              keyboardType:TextInputType.number,
+                //                decoration: InputDecoration(
+                //                  hintText: 'Ex : xxxx@ofibre.ci ou 2722222222',
+                //                  fillColor: const Color.fromARGB(255, 6, 5, 5).withOpacity(0.3),
+                //                  filled: true,
+                //                  border: OutlineInputBorder(
+                //                     borderRadius: BorderRadius.circular(5),   
+                //                  ),
+                //                  focusedBorder: OutlineInputBorder(
+                //                     borderRadius: BorderRadius.circular(5),
+                //                     borderSide: BorderSide(color: const Color.fromARGB(255, 149, 149, 149).withOpacity(0.3))
+                //                  )
+                //                ),
+   
+                //                validator: (value) {
+                                
+                //                 if(value != null && value.trim().isEmpty){
+                                   
+                //                   return  'number is empty';
+                //                  }
+   
+                //                  else if(value!.startsWith('08') || value.length != 10){
+   
+                //                  return   'use oange number';
+                //                  }
+   
+                //                  else{
+                //                    return null;
+                //                  } 
+                //                },
+                //            ),
+                           
+                //          ),
+                //        ]
+                //    ),
+                    
+                //    )
+                //  ),              
+   
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+                // Container(
+                //     margin: const EdgeInsets.all(20),
+                //    child: Form(
+                //      key: _key,
+                //      child: Column(
+                //        children: [
+                //          Container(
+                //            height: 50,
+                //            width: 361,
+                //            decoration: BoxDecoration(
+                //              borderRadius: BorderRadius.circular(5)
+                //            ),
+                //            child: TextFormField(
+                //              controller: _control,
+                //              keyboardType:TextInputType.number,
+                //                decoration: InputDecoration(
+                //                  hintText: 'Ex : xxxx@ofibre.ci ou 2722222222',
+                //                  fillColor: const Color.fromARGB(255, 6, 5, 5).withOpacity(0.3),
+                //                  filled: true,
+                //                  border: OutlineInputBorder(
+                //                     borderRadius: BorderRadius.circular(5),   
+                //                  ),
+                //                  focusedBorder: OutlineInputBorder(
+                //                     borderRadius: BorderRadius.circular(5),
+                //                     borderSide: BorderSide(color: const Color.fromARGB(255, 149, 149, 149).withOpacity(0.3))
+                //                  )
+                //                ),
+   
+                //                validator: (value) {
+                                
+                //                 if(value != null && value.trim().isEmpty){
+                                   
+                //                   return  'number is empty';
+                //                  }
+   
+                //                  else if(!value!.startsWith('07') || value!.length != 10){
+   
+                //                  return   'use oange number';
+                //                  }
+   
+                //                  else{
+                //                    return null;
+                //                  } 
+                //                },
+                //            ),
+                           
+                //          ),
+                //        ]
+                //    ),
+                    
+                //    )
+                //  ),              
+   
+   
+                 
+                //  Row(
+                //    mainAxisAlignment: MainAxisAlignment.center,
+                //    children: [
+                //      GestureDetector(
+                //        // _griseButton ?
+                //          onTap:  (){
+                //            if(_key.currentState!.validate()){
+   
+                //              sendSms(_control.text);
+   
+   
+                //            }
+                //          }
+                //          // :null
+                //          ,
+                //           child: Container(
+                //             height: 56,
+                //             width: 289,
+                //             alignment: Alignment.center,
+                //             margin: const EdgeInsets.only(left: 43,top: 25,right: 43,bottom: 16),
+                //             decoration: BoxDecoration(
+                //               borderRadius: BorderRadius.circular(10),
+                //               color: _griseButton? Colors.orange[700]:Colors.grey,
+                //             ),
+                //             child: TextButton(
+                //               style: ButtonStyle(
+                //                 backgroundColor: MaterialStateProperty.all(
+                //                     _griseButton? Colors.transparent:Colors.transparent)
+                //               ),
+                //               onPressed: _griseButton ? () {
+                //                 Navigator.push(context, MaterialPageRoute(builder: (context){
+                //                   return const HomePrincipal();
+                //                 }));
+                //               }:null,
+                //               child: const Text("valider",
+                //                 style: TextStyle(color: Colors.white,fontWeight: FontWeight.w600,
+                //                     fontSize: 16,fontFamily: 'inter-Black.ttf'),),
+   
+                //             ),
+                //           ),
+                //        ),
+   
+                //    ],
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+                // Container(
+                //     margin: const EdgeInsets.all(20),
+                //    child: Form(
+                //      key: _key,
+                //      child: Column(
+                //        children: [
+                //          Container(
+                //            height: 50,
+                //            width: 361,
+                //            decoration: BoxDecoration(
+                //              borderRadius: BorderRadius.circular(5)
+                //            ),
+                //            child: TextFormField(
+                //              controller: _control,
+                //              keyboardType:TextInputType.number,
+                //                decoration: InputDecoration(
+                //                  hintText: 'Ex : xxxx@ofibre.ci ou 2722222222',
+                //                  fillColor: const Color.fromARGB(255, 6, 5, 5).withOpacity(0.3),
+                //                  filled: true,
+                //                  border: OutlineInputBorder(
+                //                     borderRadius: BorderRadius.circular(5),   
+                //                  ),
+                //                  focusedBorder: OutlineInputBorder(
+                //                     borderRadius: BorderRadius.circular(5),
+                //                     borderSide: BorderSide(color: const Color.fromARGB(255, 149, 149, 149).withOpacity(0.3))
+                //                  )
+                //                ),
+   
+                //                validator: (value) {
+                                
+                //                 if(value != null && value.trim().isEmpty){
+                                   
+                //                   return  'number is empty';
+                //                  }
+   
+                //                  else if(!value.startsWith('07') || value!.length != 10){
+   
+                //                  return   'use oange number';
+                //                  }
+   
+                //                  else{
+                //                    return null;
+                //                  } 
+                //                },
+                //            ),
+                           
+                //          ),
+                //        ]
+                //    ),
+                    
+                //    )
+                //  ),              
+   
+   
+                //  Row(
+                //    mainAxisAlignment: MainAxisAlignment.center,
+                //    children: [
+                //      GestureDetector(
+                //        // _griseButton ?
+                //          onTap:  (){
+                //            if(_key.currentState!.validate()){
+   
+                //              sendSms(_control.text);
+   
+   
+                //            }
+                //          }
+                //          // :null
+                //          ,
+                //           child: Container(
+                //             height: 56,
+                //             width: 289,
+                //             alignment: Alignment.center,
+                //             margin: const EdgeInsets.only(left: 43,top: 25,right: 43,bottom: 16),
+                //             decoration: BoxDecoration(
+                //               borderRadius: BorderRadius.circular(10),
+                //               color: _griseButton? Colors.orange[700]:Colors.grey,
+                //             ),
+                //             child: TextButton(
+                //               style: ButtonStyle(
+                //                 backgroundColor: MaterialStateProperty.all(
+                //                     _griseButton? Colors.transparent:Colors.transparent)
+                //               ),
+                //               onPressed: _griseButton ? () {
+                //                 Navigator.push(context, MaterialPageRoute(builder: (context){
+                //                   return const HomePrincipal();
+                //                 }));
+                //               }:null,
+                //               child: const Text("valider",
+                //                 style: TextStyle(color: Colors.white,fontWeight: FontWeight.w600,
+                //                     fontSize: 16,fontFamily: 'inter-Black.ttf'),),
+   
+                //             ),
+                //           ),
+                //        ),
+   
+                //    ],
+                //  ),
+   
+   
+
+
+                                              //   else if(value!.startsWith('0') || value.length != 10){
+
+                              // return  'use oange number';
+                              // }
