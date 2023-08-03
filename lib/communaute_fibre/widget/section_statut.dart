@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:dotted_dashed_line/dotted_dashed_line.dart';
 import 'package:gptone/communaute_fibre/data/status_data.dart';
 
@@ -61,9 +62,9 @@ class _SectionStatutsState extends State<SectionStatuts> {
                       ],
                     ),
                     Container(
-                      padding: EdgeInsets.all(3),
+                      padding: const EdgeInsets.all(3),
                       decoration: BoxDecoration(
-                          color: Color(0xFFD9D9D9),
+                          color: const Color(0xFFD9D9D9),
                           borderRadius: BorderRadius.circular(5)),
                       child: const Icon(
                         Icons.edit,
@@ -76,7 +77,7 @@ class _SectionStatutsState extends State<SectionStatuts> {
 
               Container(
                 height: 1,
-                color: const Color(0xFFD9D9D9),
+                color: const Color(0xFFD9D9D9),     
               ),
               ...List.generate(
                   profile.length,
@@ -89,29 +90,12 @@ class _SectionStatutsState extends State<SectionStatuts> {
                           _DottedLinge(),
                         ],
                       )),
-
-             
-            //  _tablestatus()
-            //  _tablestatus()
-            //  _tablestatus()
-            //  _tablestatus()
-              
-
-
             ],
           ),
         ),
       ],
     );
   }
-
-
-
-
-
-
-
-
 
   // ignore: non_constant_identifier_names
   _RowStatut(text1,text2,text3,text4,text5,text6,text7,text8,text9,text10) {
@@ -212,64 +196,10 @@ class _SectionStatutsState extends State<SectionStatuts> {
               )
             ],
           ),
-          
-       
         ],
       ),
     );
   }
-
-
-
-  // _tablestatus(){
-  //   return DataTable(
-  //     columns: const [
-  //       DataColumn(label: Text("text",style: TextStyle(color: Colors.black12),)),
-  //        DataColumn(label: Text("text",style: TextStyle(color: Colors.black12),)),
-  //         DataColumn(label: Text("text",style: TextStyle(color: Colors.black12),)),
-  //          DataColumn(label: Text("text",style: TextStyle(color: Colors.black12),)),
-  //           DataColumn(label: Text("text",style: TextStyle(color: Colors.black12),)),
-  //     ],
-  //      rows: List<DataRow> .generate(profile.length, (index) {
-  //       return DataRow(cells: [
-  //         DataCell(Text(profile[index].statut,style: TextStyle(color: Colors.black),)),
-  //          DataCell(Text(profile[index].statut,style: TextStyle(color: Colors.black),)),
-  //           DataCell(Text(profile[index].statut,style: TextStyle(color: Colors.black),)),
-  //            DataCell(Text(profile[index].statut,style: TextStyle(color: Colors.black),)),
-  //             DataCell(Text(profile[index].statut,style: TextStyle(color: Colors.black),)),
-  //              DataCell(Text(profile[index].statut,style: TextStyle(color: Colors.black),))
-
-  //       ]);
-  //      }));
-  // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   // ignore: non_constant_identifier_names
   _DottedLinge() {
     return DottedDashedLine(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:flutter_svg/flutter_svg.dart';
-
+import 'package:gptone/communaute_fibre/data/faq_data.dart';
 import '../level_widget/level_argent.dart';
 import '../level_widget/level_bronze.dart';
 import '../level_widget/level_diamant.dart';
@@ -15,32 +16,51 @@ class SousProflie extends StatefulWidget {
 
 class _SousProflieState extends State<SousProflie> {
 
-
-  late bool changColor = false;
-  late bool changeColorOne = false;
-  late bool changColorTwo = false;
-  late bool changColortThree = false;
-  late bool changColorFour = false;
-
-  late bool  iconcolorsOne = false;
-  late bool  iconcolorsTwo = false;
-  late bool  iconcolorsThree = false;
-  
-  final color1 = const Color(0xFF18A8F5);
-  final color2 = const Color(0xFFD1AF29);
-  final color3 = const Color(0xFF818F9D);
-  final color4 = const Color(0xFF99847E);
- 
+   
+   // var for change widget
   late Widget changWidget = const LevelDiamant();
+
+
+  // var for buid icon 
+  final image = [
+     WidgetManager(image: 'assets/images/svgdiamant.svg', color: const Color(0xFF18A8F5)),
+     WidgetManager(image: 'assets/images/svgor.svg', color: const Color(0xFFD1AF29)),
+     WidgetManager(image: 'assets/images/svgargnet.svg', color: const Color(0xFF818F9D)),
+     WidgetManager(image: 'assets/images/svgbronze.svg', color: const Color(0xFF99847E) ),
+  ];
+
+
+   // var to build icons button 
+
+  List <bool> isSelect = [true, false, false,false];
+
+  int currentWidegt = 0;
+
+
+  // widegt for button icons button build
+
+  List sousProfileWidegt = [
+    const LevelDiamant(),
+          LevelOr(),
+    const LevelArgent(),
+    const LevelBronze()
+
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Row(
-          children: [
+         
         
+      carIcons(),
+      
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+
+            
             CardButtom()
           ]
 
@@ -54,182 +74,130 @@ class _SousProflieState extends State<SousProflie> {
   
   }
 
+    
+
+ // card icone
+    carIcons(){
+      return      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+                     ...  List.generate(image.length, (index) =>  Container(
+            height: 70,
+            width: 70,
+            margin: const EdgeInsets.all(10),
+            decoration:  BoxDecoration(
+              color: image[index].color,      
+              shape: BoxShape.circle
+            ),
+            child: SvgPicture.asset(image[index].image,height: 40,width: 40 )
+          )),
+            ],
+          );
+    }
+
+
+
+
   
   // Button to get suprise
+  // ignore: non_constant_identifier_names
   CardButtom(){
-    return Column(
-      children: [
-       
-       Row(
+    return ToggleButtons(
+        isSelected: isSelect,
+        fillColor: Colors.transparent,
+        selectedColor: Colors.white,
+        renderBorder: false,
+        splashColor: const Color.fromARGB(255, 222, 222, 222),
+      
+        
         children: [
-            Column(
-              children: [
-          
+         
+       
           Container(
-          height: 70,
-          width: 70,
-          margin: const EdgeInsets.all(10),
-          decoration:  BoxDecoration(
-            color: color1,      
-            shape: BoxShape.circle
-          ),
-          child: SvgPicture.asset("assets/images/svgdiamant.svg",height: 40,width: 40 )
-        ),
-          
-         GestureDetector(
-          onTap: () {
-            setState(() {
-              changeColorOne =! changeColorOne;
-              
-              changWidget = const LevelDiamant();
-
-            });
-          },
-          child: Container(
-            height: 40,
-            width: 80,
-            alignment: Alignment.center,
-            margin: const EdgeInsets.only(top: 10),
-            decoration: BoxDecoration(
-             color:  changeColorOne? Colors.blue: Colors.white,
-             borderRadius: BorderRadius.circular(20),
-
-            ),
-            child:  Text("Diamant",style: TextStyle(color: changeColorOne? Colors.white: color1),),
-          ) ,
-        )  
-
-            ],
-            
-      ),
-            
-           Column(children: [
-          Container(
-          height: 70,
-          width: 70,
-          margin: const EdgeInsets.all(10),
-          decoration:  BoxDecoration(
-            color: color2,      
-            shape: BoxShape.circle
-          ),
-          child: SvgPicture.asset("assets/images/svgor.svg",height: 40,width: 40 )
-        ),
-          
-         GestureDetector(
-          onTap: () {
-            setState(() {
-              changColorTwo =! changColorTwo;
-                
-              changWidget = LevelOr();
-
-            });
-          },
-          child: Container(
-            height: 40,
-            width: 80,
-            alignment: Alignment.center,
-            margin: const EdgeInsets.only(top: 10),
-            decoration: BoxDecoration(
-             color:  changColorTwo? color2: Colors.white,
-             borderRadius: BorderRadius.circular(20),
-
-            ),
-            child:  Text("Or",style: TextStyle(color: changColorTwo? Colors.white: color2),),
-          ) ,
-        )  
-
-            ],
+              height: 40,
+              width: 80,
+              alignment: Alignment.center,
+              margin: const EdgeInsets.only(top: 10,right: 10),
+              decoration: BoxDecoration(
+               color:  isSelect[0]? Colors.blue: Colors.white,
+               borderRadius: BorderRadius.circular(20),
     
-           ),
+              ),
+              child:  Text("Diamant",style: TextStyle(color: isSelect[0]? Colors.white: const Color(0xFF18A8F5)),),
+            ) ,
+         
+
+         Container(
+              height: 40,
+              width: 80,
+              alignment: Alignment.center,
+              margin: const EdgeInsets.only(top: 10,right: 10),
+              decoration: BoxDecoration(
+               color:  isSelect[1]? const Color(0xFFD1AF29): Colors.white,
+               borderRadius: BorderRadius.circular(20),
+    
+              ),
+              child:  Text("Or",style: TextStyle(color: isSelect[1]? Colors.white: const Color(0xFFD1AF29)),),
+            ),
+          
+
+            
+        Container(
+              height: 40,
+              width: 80,
+              alignment: Alignment.center,
+              margin: const EdgeInsets.only(top: 10,right: 10),
+              decoration: BoxDecoration(
+               color:  isSelect[2]? const Color(0xFF818F9D): Colors.white,
+               borderRadius: BorderRadius.circular(20),
+    
+              ),
+              child:  Text("Argent",style: TextStyle(color:isSelect[2]? Colors.white:  const Color(0xFF818F9D)),),
+            ) ,
+          
+    
+       
+            
+         Container(
+              height: 40,
+              width: 80,
+              alignment: Alignment.center,
+              margin: const EdgeInsets.only(top: 10,right: 10),
+              decoration: BoxDecoration(
+               color:  isSelect[3]? const Color(0xFF99847E) : Colors.white,
+               borderRadius: BorderRadius.circular(20),
+    
+              ),
+              child:  Text("Bronze",style: TextStyle(color: isSelect[3]? Colors.white:  const Color(0xFF99847E) ),),
+            ) ,
+          
+         
            
-         Column(
-          children: [
-
-          Container(
-          height: 70,
-          width: 70,
-          margin: const EdgeInsets.all(10),
-          decoration:  BoxDecoration(
-            color: color3,      
-            shape: BoxShape.circle
-          ),
-          child: SvgPicture.asset("assets/images/svgargnet.svg",height: 50,width: 50)
-        ),
-          
-         GestureDetector(
-          onTap: () {
-            setState(() {
-              changColortThree =! changColortThree;
-
-               changWidget = const LevelArgent();
-
-            });
-          },
-          child: Container(
-            height: 40,
-            width: 80,
-            alignment: Alignment.center,
-            margin: const EdgeInsets.only(top: 10),
-            decoration: BoxDecoration(
-             color:  changColortThree? color3: Colors.white,
-             borderRadius: BorderRadius.circular(20),
-
-            ),
-            child:  Text("Argent",style: TextStyle(color: changColortThree? Colors.white: color3),),
-          ) ,
-        )  
-
-            ],
-            
-      ),
-       
-        Column(
-          children: [
-          Container(
-          height: 70,
-          width: 70,
-          margin: const EdgeInsets.all(10),
-          decoration:  BoxDecoration(
-            color: color4,      
-            shape: BoxShape.circle
-          ),
-          child: SvgPicture.asset("assets/images/svgbronze.svg",height: 50,width: 50)
-        ),
-          
-         GestureDetector(
-          onTap: () {
-            setState(() {
-              changColorFour =! changColorFour;
-              
-              changWidget = const LevelBronze();
-
-            });
-          },
-          child: Container(
-            height: 40,
-            width: 80,
-            alignment: Alignment.center,
-            margin: const EdgeInsets.only(top: 10),
-            decoration: BoxDecoration(
-             color:  changColorFour? color4: Colors.white,
-             borderRadius: BorderRadius.circular(20),
-
-            ),
-            child:  Text("Bronze",style: TextStyle(color: changColorFour? Colors.white:  color4),),
-          ) ,
-        )  
-
-            ],
-            
-      )
-       
         ],
-       ),
-
-       
-
-      ],
+         
+    
+          
+    
+          onPressed: (int newindex) {
+            setState(() {
+              isSelect[newindex] = !isSelect[newindex];
+              currentWidegt = newindex;
+              
+    
+              for(int index = 0; index < isSelect.length; index++ ){
+                if(index == newindex){
+                  isSelect[index] = true;
+                  changWidget = sousProfileWidegt[index];
+                  
+                }
+                else{
+                  isSelect[index] = false;
+                }
+              }
+            });
+          }
     );
+      
   }
 
 

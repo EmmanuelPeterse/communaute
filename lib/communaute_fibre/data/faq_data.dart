@@ -1,3 +1,6 @@
+
+import 'package:flutter/material.dart';
+
 class  FAQModel{
 
   late String title;
@@ -12,6 +15,18 @@ class  FAQModel{
   required this.desc});
 }
 
+
+class WidgetManager{
+
+  late String image; 
+ late dynamic color;
+
+
+  WidgetManager({
+    required this.image,
+    required this.color,
+  });
+}
 
 
 

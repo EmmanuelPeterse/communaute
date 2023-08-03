@@ -12,11 +12,7 @@ class SectionProfile extends StatefulWidget {
 }
 
 class _SectionProfileState extends State<SectionProfile> {
-  late bool changColor = false;
-  late bool changeColorOne = false;
-  late bool changColorTwo = false;
-  late bool changColortThree = false;
-  late bool changColorFour = false;
+
 
   bool iconcolorsOne = false;
   late bool iconcolorsTwo = false;
@@ -31,149 +27,179 @@ class _SectionProfileState extends State<SectionProfile> {
 
   late Widget supriseWidget = const SousProflie();
 
+   List<bool> isSelected = [true, false, false];
+
+   int currentview = 0;
+     List showWidget = [
+      const SousProflie(),
+      const SousParrainage(),
+      const SousProflie()
+
+    ];
+ 
+
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(children: [
-            cardreProfile(),
-          ]),
-          supriseWidget
-        ],
-      ),
-    );
-  }
 
-  // profile place
-
-  cardreProfile() {
-    return Row(
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        GestureDetector(
-            onTap: () {
-              setState(() {
-                iconcolorsOne = !iconcolorsOne;
-                supriseWidget = const SousProflie();
-              });
-            },
-            child: Container(
-              height: 100,
-              width: 120,
-              margin: const EdgeInsets.all(2),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                  color: iconcolorsOne
-                      ? const Color.fromARGB(255, 235, 134, 40)
-                      : const Color.fromARGB(255, 213, 213, 213),
-                  borderRadius: BorderRadius.circular(10)),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    "assets/images/persone.png",
-                    height: 30,
-                    width: 30,
-                    fit: BoxFit.cover,
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  const Text(
-                    "Info Profile",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500),
-                  ),
-                ],
-              ),
-            )),
-        GestureDetector(
-          onTap: () {
-            setState(() {
-              iconcolorsTwo = !iconcolorsTwo;
 
-              supriseWidget = Container(
-                child: const Text("data"),
-              );
-            });
-          },
-          child: Container(
-            height: 100,
-            width: 120,
-            margin: const EdgeInsets.all(2),
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-                color: iconcolorsTwo
-                    ? const Color.fromARGB(255, 235, 134, 40)
-                    : const Color.fromARGB(255, 213, 213, 213),
-                borderRadius: BorderRadius.circular(10)),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  "assets/images/surclassement.png",
-                  height: 30,
-                  width: 30,
-                  fit: BoxFit.cover,
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                const Text(
-                  "Surclassement ",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500),
-                ),
-              ],
-            ),
-          ),
-        ),
-        GestureDetector(
-            onTap: () {
-              setState(() {
-                iconcolorsThree = !iconcolorsThree;
-
-                supriseWidget = const SousParrainage();
-              });
-            },
-            child: Container(
-              height: 100,
-              width: 120,
-              margin: const EdgeInsets.all(2),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                  color: iconcolorsThree
-                      ? const Color.fromARGB(255, 235, 134, 40)
-                      : const Color.fromARGB(255, 213, 213, 213),
-                  borderRadius: BorderRadius.circular(10)),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    "assets/images/parainage.png",
-                    height: 30,
-                    width: 30,
-                    fit: BoxFit.cover,
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  const Text(
-                    "Parrainage",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500),
-                  ),
-                ],
-              ),
-            ))
+         Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            _toggleButton("assets/images/persone.png","Info Profile", "assets/images/surclassement.png", "Surclassement","assets/images/parainage.png","Parrainage",),
+        ]),
+         
+         
+           supriseWidget
+         
       ],
     );
+
   }
+
+   
+  _toggleButton(icons1, text1,icons2, text2,icons3, text3,){
+
+    return ToggleButtons(
+      isSelected: isSelected,
+      fillColor: Colors.transparent,
+      splashColor: const Color.fromARGB(255, 222, 222, 222),
+      renderBorder: false,
+      constraints: const BoxConstraints(
+        minHeight: 100,
+        minWidth: 120,
+        
+        ),
+      
+      borderWidth: 100,
+      children:[
+        
+             Container(
+              height: 115,
+              width: 115,
+              margin: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color:  isSelected[0]?  const Color(0xFFFFB400): const Color.fromARGB(255, 233, 233, 233),
+                borderRadius: BorderRadius.circular(10)
+              ),
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      icons1,
+                      height: 30,
+                      width: 30,
+                      fit: BoxFit.cover,
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      text1,
+                      style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500),
+                    ),
+                  ],
+                ),
+               ),
+           
+             Container(
+              height: 115,
+              width: 115,
+              margin: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color:  isSelected[1]?    const Color(0xFFFFB400): const Color.fromARGB(255, 233, 233, 233),
+                borderRadius: BorderRadius.circular(10)
+              ),
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      icons2,
+                      height: 30,
+                      width: 30,
+                      fit: BoxFit.cover,
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      text2,
+                      style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500),
+                    ),
+                  ],
+                ),
+            ),
+           
+
+            Container(
+              height: 115,
+              width: 115,
+              margin: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color:  isSelected[2]?    const Color(0xFFFFB400): const Color.fromARGB(255, 233, 233, 233),
+                borderRadius: BorderRadius.circular(10)
+              ),
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      icons3,
+                      height: 30,
+                      width: 30,
+                      fit: BoxFit.cover,
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      text3,
+                      style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500),
+                    ),
+                  ],
+                ),
+            ),   
+
+             
+        ],
+    
+    
+      onPressed: (int newindex) {
+        setState(() {
+
+          isSelected[newindex] = !isSelected[newindex];
+          currentview = newindex;
+
+          
+
+          for(int index = 0; index < isSelected.length ; index ++){
+            if(index == newindex){
+              isSelected[index] = true;
+             supriseWidget = showWidget[index];
+              
+            }
+            else{
+              isSelected[index] = false;
+            }
+          }
+        });
+      },
+     );
+
+
+  }
+
+
+
 }
