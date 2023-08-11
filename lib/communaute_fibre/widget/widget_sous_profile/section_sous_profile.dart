@@ -104,10 +104,10 @@ class _SousProflieState extends State<SousProflie> {
   CardButtom(){
     return ToggleButtons(
         isSelected: isSelect,
-        fillColor: Colors.transparent,
-        selectedColor: Colors.white,
+        fillColor:  Color.fromARGB(0, 205, 22, 22),
+        selectedColor: Color.fromARGB(255, 238, 238, 238),
         renderBorder: false,
-        splashColor: const Color.fromARGB(255, 222, 222, 222),
+         splashColor: Color.fromARGB(255, 238, 238, 238),
       
         
         children: [
@@ -169,9 +169,7 @@ class _SousProflieState extends State<SousProflie> {
     
               ),
               child:  Text("Bronze",style: TextStyle(color: isSelect[3]? Colors.white:  const Color(0xFF99847E) ),),
-            ) ,
-          
-         
+            )     
            
         ],
          

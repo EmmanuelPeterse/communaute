@@ -83,7 +83,6 @@ class _SectionFaqState extends State<SectionFaq> {
                     iconColor: Colors.orange,
               
                     decoration: BoxDecoration(
-                        // borderRadius: const BorderRadius.vertical(top: Radius.circular(10),bottom: Radius.circular(10)),
                         border: Border(
                       bottom: BorderSide(
                           color:

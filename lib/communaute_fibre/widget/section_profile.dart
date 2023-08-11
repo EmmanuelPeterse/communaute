@@ -3,6 +3,7 @@ import 'package:gptone/communaute_fibre/widget/level_widget/level_diamant.dart';
 // ignore: depend_on_referenced_packages
 import 'package:gptone/communaute_fibre/widget/widget_sous_profile/sous_parrainage.dart';
 import 'package:gptone/communaute_fibre/widget/widget_sous_profile/section_sous_profile.dart';
+import 'package:gptone/communaute_fibre/widget/widget_sous_profile/sous_surclassement.dart';
 
 class SectionProfile extends StatefulWidget {
   const SectionProfile({super.key});
@@ -32,7 +33,7 @@ class _SectionProfileState extends State<SectionProfile> {
    int currentview = 0;
      List showWidget = [
       const SousProflie(),
-      const SousParrainage(),
+      const SousSurclassement(),
       const SousParrainage(),
 
     ];
@@ -65,8 +66,8 @@ class _SectionProfileState extends State<SectionProfile> {
 
     return ToggleButtons(
       isSelected: isSelected,
-      fillColor: Colors.transparent,
-      splashColor: const Color.fromARGB(255, 222, 222, 222),
+      fillColor: const Color.fromARGB(0, 153, 89, 89),
+      splashColor: const Color.fromARGB(255, 238, 238, 238),
       renderBorder: false,
       constraints: const BoxConstraints(
         minHeight: 100,

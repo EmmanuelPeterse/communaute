@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:badges/badges.dart' as badges;
 
 class HomeTest extends StatefulWidget {
   const HomeTest({Key? key}) : super(key: key);
@@ -9,15 +8,6 @@ class HomeTest extends StatefulWidget {
 }
 
 class _HomeTestState extends State<HomeTest> {
-
- /* List<Tab> tab =[
-       Tab(child: Text("Mes service",style:TextStyle(color: Colors.orange),),
-      Tab(child: Text("Facture",style:TextStyle(color: Colors.orange),),
-      Tab(child: Text("Test debit"),),
-      Tab(child: Text("Réseau local"),),
-      Tab(child: Text("Mes Mes avantage"),),
-
-  ];*/
 
   List<Container> container = [
     Container(
@@ -49,8 +39,9 @@ class _HomeTestState extends State<HomeTest> {
 
           appBar: AppBar(
             backgroundColor: Colors.yellow,
-              title: Text("Etat de mes service",),
-              bottom: PreferredSize(
+              title: const Text("Etat de mes service",),
+              bottom: const PreferredSize(
+                  preferredSize: Size.fromHeight(50),
                   child: TabBar(
                       tabs: [
                         Tab(text: 'Mes service',),
@@ -66,12 +57,11 @@ class _HomeTestState extends State<HomeTest> {
                     labelColor: Colors.orange,
                     labelStyle: TextStyle(fontFamily: 'Roboto-Black.ttf',
                          fontWeight: FontWeight.w500,fontSize: 12),
-                      ),
-              preferredSize: Size.fromHeight(50))
+                      ))
 
               ),
 
-              body: SingleChildScrollView(
+              body: const SingleChildScrollView(
                 child: Column(
                   children: [
 

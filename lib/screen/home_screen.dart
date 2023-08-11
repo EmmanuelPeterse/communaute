@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     // wigdet place
-    _text = Text("un text");
+    _text = const Text("un text");
     super.initState();
   }
 
@@ -199,7 +199,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           setState(() {
                             _key.currentState!.save();
                             Navigator.push(context, MaterialPageRoute(builder: (context){
-                              return HomeInputCode();
+                              return const HomeInputCode();
                             }));
 
 
@@ -222,10 +222,10 @@ class _HomeScreenState extends State<HomeScreen> {
                            ),
                            onPressed: _griseButton ? () {
                              Navigator.push(context, MaterialPageRoute(builder: (context){
-                               return HomePrincipal();
+                               return const HomePrincipal();
                              }));
                            }:null,
-                           child: Text("valider",
+                           child: const Text("valider",
                              style: TextStyle(color: Colors.white,fontWeight: FontWeight.w600,
                                  fontSize: 16,fontFamily: 'inter-Black.ttf'),),
 
@@ -354,7 +354,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 setState(() {
                   _text = SecondaireScreen().text;
                 });
-                },  child: Text("hanger")),
+                },  child: const Text("hanger")),
 
 
             ]),

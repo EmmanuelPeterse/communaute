@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gptone/communaute_fibre/page_communaute_fibre.dart';
+import 'package:gptone/univers_ma_box/vue_principal.dart';
 
 
 void main() {
@@ -28,7 +28,8 @@ class MyApp extends StatelessWidget {
           
             textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
           ),
-           home: PageCommunauteFibre()
+           home: PrinciaplScreenOfUnivers()
+          //  PageCommunauteFibre()
         );
       }
 
