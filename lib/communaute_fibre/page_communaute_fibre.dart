@@ -9,11 +9,11 @@ class PageCommunauteFibre extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 222, 222, 222),
+      backgroundColor: Color.fromARGB(255, 238, 238, 238),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
-          margin: const EdgeInsets.symmetric(vertical: 16,horizontal: 1),
+          margin: const EdgeInsets.symmetric(vertical: 16,horizontal: 2),
           child: const Column(
             children: [
               SectionStatuts(),

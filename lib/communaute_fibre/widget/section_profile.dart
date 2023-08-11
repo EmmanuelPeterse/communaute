@@ -33,7 +33,7 @@ class _SectionProfileState extends State<SectionProfile> {
      List showWidget = [
       const SousProflie(),
       const SousParrainage(),
-      const SousProflie()
+      const SousParrainage(),
 
     ];
  
