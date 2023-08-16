@@ -3,30 +3,25 @@ import 'package:get/get.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 import 'package:timer_count_down/timer_controller.dart';
 
-class HomeController extends GetxController{
+class HomeController extends GetxController {
+  TextEditingController textEditingController = TextEditingController();
+  CountdownController countdownController = CountdownController();
 
-TextEditingController textEditingController = TextEditingController();
-CountdownController countdownController =CountdownController();
+  var messageOtp = ''.obs;
 
-var messageOtp = ''.obs;
-
-@override
-  void onInit() async{
+  @override
+  void onInit() async {
     // TODO: implement onInit
     super.onInit();
     print(SmsAutoFill().getAppSignature);
-
   }
-
 
   @override
   void onReady() {
     // TODO: implement onReady
     super.onReady();
     countdownController.start();
-    
   }
-
 
   @override
   void onClose() {
@@ -35,5 +30,4 @@ var messageOtp = ''.obs;
     textEditingController.dispose;
     SmsAutoFill().unregisterListener();
   }
-
 }

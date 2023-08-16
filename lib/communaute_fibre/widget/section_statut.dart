@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:dotted_dashed_line/dotted_dashed_line.dart';
-import 'package:gptone/communaute_fibre/data/status_data.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SectionStatuts extends StatefulWidget {
   const SectionStatuts({super.key});
@@ -11,202 +11,148 @@ class SectionStatuts extends StatefulWidget {
 }
 
 class _SectionStatutsState extends State<SectionStatuts> {
- 
- final profile = StatutsSection.fectStatus();
-
-
-  
-
+  final titleCard = [
+    'Status',
+    'Nom et prenom',
+    'ND Fibre',
+    'Login',
+    'N°Client',
+  ];
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          margin: const EdgeInsets.only(top: 10, bottom: 12),
-          decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(10)),
-          alignment: Alignment.center,
-          child: Column(
-            children: [
-              Container(
-                margin: const EdgeInsets.all(10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Icon(
-                      Icons.abc,
-                      color: Colors.white,
-                    ),
-                    Row(
-                      children: [
-                        Container(
-                          decoration: const BoxDecoration(
-                              color: Color(0xFFD1AF29), shape: BoxShape.circle),
-                          child: Image.asset(
-                            "assets/images/or.png",
-                            height: 20,
-                            width: 20,
-                            fit: BoxFit.contain,
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 4,
-                        ),
-                        const Text(
-                          "OR",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500),
-                        )
-                      ],
-                    ),
-                    Container(
-                      padding: const EdgeInsets.all(3),
-                      decoration: BoxDecoration(
-                          color: const Color(0xFFD9D9D9),
-                          borderRadius: BorderRadius.circular(5)),
-                      child: const Icon(
-                        Icons.edit,
-                        color: Color(0xFFFF7900),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-
-              Container(
-                height: 1,
-                color: const Color(0xFFD9D9D9),     
-              ),
-              ...List.generate(
-                  profile.length,
-                  (index) => Column(
-                        children: [
-                          _RowStatut(profile[index].statut, profile[index].statutvalur, profile[index].fulname,
-                           profile[index].fulnamevalue,profile[index].ndFibere, profile[index].ndFiberevalue,
-                           profile[index].login, profile[index].loginvalue, profile[index].clientNumber, 
-                           profile[index].clientNumbervalue,),
-                          _DottedLinge(),
-                        ],
-                      )),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
-
-  // ignore: non_constant_identifier_names
-  _RowStatut(text1,text2,text3,text4,text5,text6,text7,text8,text9,text10) {
     return Container(
-      margin: const EdgeInsets.all(10),
+      margin: EdgeInsets.symmetric(horizontal: 10.w),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(5.sp),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.2),
+            spreadRadius: 3,
+            blurRadius: 7,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
+      alignment: Alignment.center,
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-               text1
-                ,style: const TextStyle(
-                    color: Color(0xFF999999),
-                    fontSize: 17,
-                    fontWeight: FontWeight.w300),
-              ),
-              Text(
-                text2,
-                style: const TextStyle(
-                    color: Colors.black, fontSize: 17, fontWeight: FontWeight.w500),
-              )
-            ],
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width / 2,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                            decoration: const BoxDecoration(
+                                color: Color(0xFFD1AF29),
+                                shape: BoxShape.circle),
+                            child: Image.asset(
+                              "assets/images/or.png",
+                              height: 20,
+                              width: 20,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 4,
+                          ),
+                          const Text(
+                            "OR",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500),
+                          )
+                        ],
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(3),
+                        decoration: BoxDecoration(
+                            color: const Color(0xFFD9D9D9),
+                            borderRadius: BorderRadius.circular(5)),
+                        child: const Icon(
+                          Icons.edit,
+                          size: 14,
+                          color: Color(0xFFFF7900),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
-          
-          _DottedLinge(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                text3,
-                style: const TextStyle(
-                    color: Color(0xFF999999),
-                    fontSize: 17,
-                    fontWeight: FontWeight.w300),
-              ),
-              Text(
-                text4,
-                style: const TextStyle(
-                    color: Colors.black, fontSize: 17, fontWeight: FontWeight.w500),
-              )
-            ],
+          const Divider(
+            height: 1,
+            color: Color(0xFFD9D9D9),
           ),
-          _DottedLinge(),
-
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                text5,
-                style: const TextStyle(
-                    color: Color(0xFF999999),
-                    fontSize: 17,
-                    fontWeight: FontWeight.w300),
-              ),
-              Text(
-                text6,
-                style: const TextStyle(
-                    color: Colors.black, fontSize: 17, fontWeight: FontWeight.w500),
-              )
-            ],
-          ),
-          _DottedLinge(),
-
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                text7,
-                style: const TextStyle(
-                    color: Color(0xFF999999),
-                    fontSize: 17,
-                    fontWeight: FontWeight.w300),
-              ),
-              Text(
-                text8,
-                style: const TextStyle(
-                    color: Colors.black, fontSize: 17, fontWeight: FontWeight.w500),
-              )
-            ],
-          ),
-          _DottedLinge(),
-
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                text8,
-                style: const TextStyle(
-                    color: Color(0xFF999999),
-                    fontSize: 17,
-                    fontWeight: FontWeight.w300),
-              ),
-              Text(
-                text10,
-                style: const TextStyle(
-                    color: Colors.black, fontSize: 17, fontWeight: FontWeight.w500),
-              )
-            ],
-          ),
+          ...List.generate(
+              titleCard.length,
+              (index) => Column(
+                    children: [
+                      ListTileCardStatus(
+                        title: titleCard[index],
+                        value: 'Peters',
+                      ),
+                      (titleCard.last == titleCard[index])
+                          ? const SizedBox()
+                          : _dottedLinge()
+                    ],
+                  )),
         ],
       ),
     );
   }
-  // ignore: non_constant_identifier_names
-  _DottedLinge() {
+
+  Widget _dottedLinge() {
     return DottedDashedLine(
       axis: Axis.horizontal,
       height: 2,
-      width: MediaQuery.of(context).size.width,
-      dashColor: const Color(0xFFD9D9D9),
+      width: 1.sw, //Mediaquery
+      dashColor: const Color(0xFFD9D9D9).withOpacity(.5),
+    );
+  }
+}
+
+class ListTileCardStatus extends StatelessWidget {
+  const ListTileCardStatus({
+    super.key,
+    required this.title,
+    required this.value,
+  });
+
+  final String title;
+  final String value;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 10.w),
+      margin: EdgeInsets.only(bottom: 7.h),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            title,
+            style: const TextStyle(
+                color: Color(0xFF999999),
+                fontSize: 17,
+                fontWeight: FontWeight.w300),
+          ),
+          Text(
+            value,
+            style: const TextStyle(
+                color: Colors.black, fontSize: 17, fontWeight: FontWeight.w500),
+          )
+        ],
+      ),
     );
   }
 }
