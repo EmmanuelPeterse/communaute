@@ -112,7 +112,7 @@ _passeData(BuildContext context){
 
 
 
-    _showAlertDialog1(BuildContext context) {
+     _showAlertDialog1(BuildContext context) {
     showDialog(
       context: context,
       builder: (BuildContext context) {

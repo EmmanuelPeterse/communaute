@@ -38,10 +38,13 @@ class _DasboardEquipementConnecteState extends State<DasboardEquipementConnecte>
             dashColor: const Color.fromARGB(255, 198, 199, 203),
              axis: Axis.horizontal ),
 
-             ...List.generate(newEquipementConnected.length, (index) => 
-                 newConnectDevice(newEquipementConnected[index].connectionStatut, newEquipementConnected[index].network,
-                    newEquipementConnected[index].phoneName, newEquipementConnected[index].number,newEquipementConnected[index].timeOfConnection,newEquipementConnected[index].natureOfNetwork)),
-
+            //  ...List.generate(newEquipementConnected.length, (index) => 
+            //      newConnectDevice(newEquipementConnected[index].connectionStatut, newEquipementConnected[index].network,
+            //         newEquipementConnected[index].phoneName, newEquipementConnected[index].number,newEquipementConnected[index].timeOfConnection,newEquipementConnected[index].natureOfNetwork)),
+             
+            
+            
+            
              ...List.generate(oldconnectedEquipementDevice.length, (index) => 
                  oldConnectDevice(oldconnectedEquipementDevice[index].connectionStatut, oldconnectedEquipementDevice[index].network,
                     oldconnectedEquipementDevice[index].phoneName, oldconnectedEquipementDevice[index].number,oldconnectedEquipementDevice[index].timeOfConnection,oldconnectedEquipementDevice[index].natureOfNetwork)),

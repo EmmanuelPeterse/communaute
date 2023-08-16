@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:expansion_tile_group/expansion_tile_group.dart';
+import 'package:expansion_tile_card/expansion_tile_card.dart';
+
 // ignore: depend_on_referenced_packages
 import 'package:gptone/univers_ma_box/pincipal_section_widegt/mode_of_wifi_statut/model_statut.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -13,9 +16,17 @@ class DashboardPanelConnection extends StatefulWidget {
 
 class _DashboardPanelConnectionState extends State<DashboardPanelConnection> {
  
- bool showButton = true;
+ bool showButton = false;
 
  final getStatut = StatutModel.createStat();
+//  late  itemSelecteds = false;
+
+ final getStatus =  [
+  'Orange wifi Guest',
+    'SSID 1 4G',
+    'SSID 1 4G'
+ ];
+    
 
  
 
@@ -27,22 +38,98 @@ class _DashboardPanelConnectionState extends State<DashboardPanelConnection> {
       child: 
       Column(
         children: [
-         
-         wifiManager(),
+   
 
-        showButton?
-        Container():
+         ExpansionTileCard(
+          contentPadding: EdgeInsets.all(10),
 
-         Column(
+            title:   Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                     Container(
+                      width: MediaQuery.sizeOf(context).width /2,
+                      child: Row(
+                        children: [
+                            const Icon(Icons.wifi,color: Colors.black,),
+                              const SizedBox(width: 10,), 
+                              Text("Famille Vro 5G",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500, fontSize: 14.sp),)
+                        ],
+                      ),
+                     ),
+                      Container(
+                        height: 30.h,
+                        width: 30.w,
+                        alignment: Alignment.center,
+                        decoration: const BoxDecoration(
+                          color: Color.fromARGB(31, 150, 125, 125),
+                          shape: BoxShape.circle
+                        ),
+                        child: SvgPicture.asset("assets/images/switchoff.svg")
+                      ),
+                    ],
+                  ),
+                ),
+           trailing: GestureDetector(
+            child: Container(
+               height: 30.h,
+                width: 30.w,
+                alignment: Alignment.center,
+                decoration: const BoxDecoration(
+                  color: Color.fromARGB(31, 150, 125, 125),
+                  shape: BoxShape.circle
+                ),
+                child: Icon(showButton? Icons.place_rounded  : Icons.navigate_next  )
+      
+            )
+
+          ),
+
           children: [
-            ... List.generate(getStatut.length, (index) => Column(
+                  ... List.generate(3, (index) => Column(
+
+              
+             
               children: [
-                subConnectionStauts(getStatut[index].wifiStatus)
+                
+                Container(
+                    padding: const EdgeInsets.all(5),
+                    decoration: const BoxDecoration(
+                      color: Color.fromARGB(221, 217, 217, 219),
+                     
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            const Icon(Icons.wifi, color: Colors.green,),
+                            const SizedBox(width: 10,),
+                            Text(getStatus[index],style: TextStyle(color: Colors.black,fontSize: 12.sp, fontWeight: FontWeight.w300),)
+                          ],
+                        ),
+       
+             Switch(value: true,
+                    activeTrackColor: Colors.grey,
+                    inactiveThumbColor: Colors.grey.withOpacity(0.3),
+                    activeColor: const Color.fromARGB(255, 241, 241, 241),
+                    
+                     onChanged: (value){})
+       
+                     ],
+                  ),
+               ),
               ],
             ))
           ],
-         )
-       
+
+          onExpansionChanged: (value) {
+            setState(() {
+              showButton = ! showButton;
+            });
+          },   
+
+          ),
 
 
          
@@ -53,8 +140,8 @@ class _DashboardPanelConnectionState extends State<DashboardPanelConnection> {
 
   wifiManager(){
     return Container(
-      height: 50,
       
+      padding: EdgeInsets.all(5.r).w,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(5)
@@ -68,9 +155,6 @@ class _DashboardPanelConnectionState extends State<DashboardPanelConnection> {
                mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  height: 30.h,
-                  width: 130.w,
-
                   child: Row(
                     children: [
                       const Icon(Icons.wifi,color: Colors.black,),
@@ -80,16 +164,13 @@ class _DashboardPanelConnectionState extends State<DashboardPanelConnection> {
                   ),
                 ),
    
-                   Container(
-                  height: 30.h,
-                  width: 130.w,
-
+                Container(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Container(
-                        height: 50,
-                        width: 50,
+                        height: 45.h,
+                        width: 45.w,
                         alignment: Alignment.center,
                         decoration: const BoxDecoration(
                           color: Color.fromARGB(31, 150, 125, 125),
@@ -99,25 +180,28 @@ class _DashboardPanelConnectionState extends State<DashboardPanelConnection> {
                       ),
                        const SizedBox(width: 10,), 
                         Container(
-                        height: 50,
-                        width: 50,
+                        height: 45.h,
+                        width: 45.w,
                         alignment: Alignment.center,
                         decoration: const BoxDecoration(
                           color: Color.fromARGB(31, 150, 125, 125),
                           shape: BoxShape.circle
                         ),
                         child: IconButton(
+                          splashColor: Colors.transparent,
                         onPressed: (){
                           setState(() {
                             showButton = !showButton;
                           });
                         },
-                         icon:  const Icon(Icons.navigate_next,color: Colors.black,))
+                         icon: showButton?  const Icon(Icons.navigate_next,color: Colors.black,) :  const Icon(Icons.navigate_before_rounded  ,color: Colors.black,))
                       ),
                          
                     ],
                   ),
                 ),
+              
+              
               ],
             ),
           ),
@@ -125,6 +209,7 @@ class _DashboardPanelConnectionState extends State<DashboardPanelConnection> {
        ),
     );
   }
+
 
   subConnectionStauts(text){
     return Container(

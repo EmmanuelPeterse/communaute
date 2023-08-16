@@ -98,7 +98,6 @@ class NewDeviceConnected {
  // OBJECT CONNECTED
 
   class objetConnected{
-
     late String deviceName;
     late Color color;
     late Color textColor;

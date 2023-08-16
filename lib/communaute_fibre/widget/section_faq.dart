@@ -33,6 +33,7 @@ class _SectionFaqState extends State<SectionFaq> {
         ),
   ];
 
+  
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -104,6 +105,8 @@ class _SectionFaqState extends State<SectionFaq> {
               ],
               
             ),
+          
+          
           ],
         ));
   }
