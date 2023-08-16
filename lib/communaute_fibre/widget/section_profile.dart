@@ -31,8 +31,8 @@ class _SectionProfileState extends State<SectionProfile> {
   int currentview = 0;
   List showWidget = [
     const SousProflie(),
-    const SousSurclassement(),
     const SousParrainage(),
+    const SousProflie()
   ];
 
   @override

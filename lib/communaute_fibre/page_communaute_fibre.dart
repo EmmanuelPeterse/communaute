@@ -9,20 +9,15 @@ class PageCommunauteFibre extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 238, 238, 238),
+      backgroundColor: const Color(0xFFFBFBFB),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Container(
-          margin: const EdgeInsets.symmetric(vertical: 16,horizontal: 1),
-          child: const Column(
-            children: [
-              SectionStatuts(),
-              SectionProfile(),
-              SectionFaq()
-            ],
-          ),
-        )
-        ) ),
+          child: SingleChildScrollView(
+              child: Container(
+        margin: const EdgeInsets.symmetric(vertical: 16, horizontal: 1),
+        child: const Column(
+          children: [SectionStatuts(), SectionProfile(), SectionFaq()],
+        ),
+      ))),
     );
   }
 }
