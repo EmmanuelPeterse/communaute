@@ -28,8 +28,8 @@ class MyApp extends StatelessWidget {
                 textTheme:
                     Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
               ),
-              home: InfoFilleuls()
-              // PrinciaplScreenOfUnivers()
+              home: PrinciaplScreenOfUnivers()
+              // 
               //
               //  PageCommunauteFibre()
               );

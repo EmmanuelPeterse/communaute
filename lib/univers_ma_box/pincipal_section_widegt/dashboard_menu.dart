@@ -10,9 +10,22 @@ class DashboardMenu extends StatefulWidget {
 }
 
 class _DashboardMenuState extends State<DashboardMenu> {
-  final orang = const Color(0xFFFF7900);
-  final blue = const Color.fromARGB(234, 97, 173, 214);
-  final inativeColor = const Color.fromARGB(233, 185, 182, 182);
+
+
+ Map<String, bool> _allSwitch = {
+  'veuille': false,
+  'wifiGest': false,
+  'wpg': false,
+ };
+
+
+ void _handerSwitch(String switchId, bool newSwitch){
+  setState(() {
+    _allSwitch[switchId] = newSwitch;
+  });
+ }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +36,7 @@ class _DashboardMenuState extends State<DashboardMenu> {
             child: Column(
               children: [
                 Container(
-                  height: 40.h,
-                 
+                  height: 45.h,
                   padding: const EdgeInsets.all(12).w,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
@@ -40,24 +52,20 @@ class _DashboardMenuState extends State<DashboardMenu> {
                             fontWeight: FontWeight.w500),
                       ),
                       Switch(
-                          value: true,
+                          value: _allSwitch['veuille'] ?? false,
                           activeTrackColor: const Color(0xFFFF7900),
-                          inactiveThumbColor: Colors.black12,
-                          activeColor: const Color.fromARGB(255, 241, 241, 241),
-                        
-                          onChanged: (value) {}),
-
-                          
+                          activeThumbImage:
+                              const AssetImage("assets/images/blackmode.png"),
+                          activeColor: Colors.white,
+                          onChanged: (newSwitch) {
+                             _handerSwitch('veuille', newSwitch);
+                          }),
                     ],
                   ),
                 ),
-
                 SizedBox(height: 5.h),
-                   
-
                 Expanded(
                   child: Container(
-                   
                     padding: EdgeInsets.all(10).w,
                     decoration: BoxDecoration(
                       color: Colors.blue.withOpacity(0.6),
@@ -79,10 +87,9 @@ class _DashboardMenuState extends State<DashboardMenu> {
                             )
                           ],
                         ),
-                        SizedBox(height: 12.h,),
-
-                       
-
+                        SizedBox(
+                          height: 12.h,
+                        ),
                         Row(
                           children: [
                             Container(
@@ -100,7 +107,7 @@ class _DashboardMenuState extends State<DashboardMenu> {
                                     text: "Gérer la connexion de vos enfants",
                                     style: TextStyle(
                                         color: Colors.black,
-                                        fontSize: 10.sp,
+                                        fontSize: 8.sp,
                                         fontWeight: FontWeight.w400),
                                   )
                                 ]),
@@ -108,8 +115,6 @@ class _DashboardMenuState extends State<DashboardMenu> {
                             ),
                           ],
                         ),
-
-                        
                       ],
                     ),
                   ),
@@ -123,7 +128,69 @@ class _DashboardMenuState extends State<DashboardMenu> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Expanded(
-                  child: containerPlace(),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: Color(0xFFDEDEDE),
+                        borderRadius: BorderRadius.circular(4)),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Switch(
+                                value: _allSwitch['wifiGest']?? false,
+                                activeTrackColor: Color(0xFFFF7900),
+                                inactiveThumbColor: Colors.white,
+                                activeColor: Colors.white,
+                                onChanged: (value) {
+                                _handerSwitch('wifiGest', value);
+                                })
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              height: 50.h,
+                              width: 50.w,
+                              padding: const EdgeInsets.all(10),
+                              decoration: const BoxDecoration(
+                                  color: Color(0xFFDEDEDE),
+                                  shape: BoxShape.circle),
+                              child: SvgPicture.asset('assets/images/qr.svg'),
+                            )
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              alignment: Alignment.center,
+                              child: RichText(
+                                text: TextSpan(children: [
+                                  TextSpan(
+                                    text: "      Orange  Wifi Guest\n",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 14.sp,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                  TextSpan(
+                                    text:
+                                        "Scanner le QR code pour vous connecter",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 9.sp,
+                                        fontWeight: FontWeight.w400),
+                                  )
+                                ]),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
                 SizedBox(height: 5.h),
                 Container(
@@ -143,7 +210,14 @@ class _DashboardMenuState extends State<DashboardMenu> {
                             fontSize: 12.sp,
                             fontWeight: FontWeight.w500),
                       ),
-                      switchButton(blue)
+                      Switch(
+                          value: _allSwitch['wpg']?? false,
+                          activeTrackColor: Colors.blue,
+                          inactiveThumbColor: Colors.white,
+                          activeColor: Colors.white,
+                          onChanged: (value) {
+                            _handerSwitch('wpg', value);
+                          })
                     ],
                   ),
                 ),
@@ -151,68 +225,5 @@ class _DashboardMenuState extends State<DashboardMenu> {
             ),
           ),
         ]));
-  }
-
-  switchButton(color) {
-    return Switch(
-        value: true,
-        activeTrackColor: color,
-        inactiveThumbColor: color,
-        activeColor: const Color.fromARGB(255, 241, 241, 241),
-        onChanged: (value) {});
-  }
-
-  containerPlace() {
-    return Container(
-      decoration: BoxDecoration(
-          color: Color(0xFFDEDEDE), borderRadius: BorderRadius.circular(4)),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [switchButton(orang)],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                height: 50.h,
-                width: 50.w,
-                padding: const EdgeInsets.all(10),
-                decoration: const BoxDecoration(
-                    color: Color(0xFFDEDEDE), shape: BoxShape.circle),
-                child: SvgPicture.asset('assets/images/qr.svg'),
-              )
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                alignment: Alignment.center,
-                child: RichText(
-                  text: TextSpan(children: [
-                    TextSpan(
-                      text: "      Orange  Wifi Guest\n",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w500),
-                    ),
-                    TextSpan(
-                      text: "Scanner le QR code pour vous connecter",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 9.sp,
-                          fontWeight: FontWeight.w400),
-                    )
-                  ]),
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
   }
 }

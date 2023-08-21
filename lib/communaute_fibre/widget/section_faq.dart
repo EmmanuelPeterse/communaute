@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gptone/communaute_fibre/data/faq_data.dart';
-import 'package:gptone/communaute_fibre/widget/custom.dart';
+import '../../univers_ma_box/turn_widget/CustomerExpansion.dart';
 
 class SectionFaq extends StatefulWidget {
   const SectionFaq({super.key});
@@ -94,43 +94,6 @@ class _SectionFaqState extends State<SectionFaq> {
                       ],
                     )
 
-                //  ExpansionTileItem(
-                //   border: Border.all(color: Colors.transparent),
-                //   title: Text(
-                //     item.title,
-                //     style: const TextStyle(
-                //         color: Colors.black,
-                //         fontSize: 12,
-                //         fontWeight: FontWeight.w700),
-                //   ),
-                //   decoration: BoxDecoration(
-                //     color: Colors.white,
-                //     border: Border(
-                //       bottom: BorderSide(
-                //           color: items.last == item
-                //               ? Colors.transparent
-                //               : Colors.grey.withOpacity(0.3)),
-                //     ),
-                //   ),
-                //   subtitle: Text(
-                //     item.desc,
-                //     style: const TextStyle(
-                //         color: Colors.black,
-                //         fontSize: 10,
-                //         fontWeight: FontWeight.w400),
-                //   ),
-                //   children: [
-                //     Text(
-                //       item.desc,
-                //       style: const TextStyle(
-                //           color: Color(
-                //             0xFF757575,
-                //           ),
-                //           fontSize: 14,
-                //           fontWeight: FontWeight.w400),
-                //     ),
-                //   ],
-                // ),
 
                 )
           ],

@@ -71,6 +71,7 @@ dev_dependencies:
   data_table_2: ^2.5.6
   # dropdown_model_list: ^0.0.8
   expansion_tile_card: ^3.0.0
+  lite_rolling_switch: ^1.0.1
 
 
   

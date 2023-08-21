@@ -12,12 +12,6 @@ class DashboardHeader extends StatefulWidget {
 
 class _DashboardHeaderState extends State<DashboardHeader> {
   final _equipementPlace = objetConnected.getObjectConnected();
-   
-
-    
- 
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +32,6 @@ class _DashboardHeaderState extends State<DashboardHeader> {
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w700),
           ),
-
           Container(
             child: ListTile(
               title: Text(
@@ -77,16 +70,7 @@ class _DashboardHeaderState extends State<DashboardHeader> {
             margin: const EdgeInsets.only(bottom: 12),
           ),
 
-          statutBox()
-
-          
-        ],
-      ),
-    );
-  }
-
-  statutBox() {
-    return Row(
+          Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         ..._equipementPlace.map((index) => Row(
@@ -102,6 +86,30 @@ class _DashboardHeaderState extends State<DashboardHeader> {
               ],
             )),
       ],
+    )
+           
+        ],
+      ),
     );
   }
+
+  // statutBox() {
+  //   return Row(
+  //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //     children: [
+  //       ..._equipementPlace.map((index) => Row(
+  //             children: [
+  //               Icon(Icons.circle, color: index.color),
+  //               Text(
+  //                 index.deviceName,
+  //                 style: TextStyle(
+  //                     color: index.textColor,
+  //                     fontSize: 14.sp,
+  //                     fontWeight: FontWeight.w700),
+  //               ),
+  //             ],
+  //           )),
+  //     ],
+  //   );
+  // }
 }

@@ -3,10 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 const Duration _kExpand = Duration(milliseconds: 200);
 
-class CustomerExtantionCards extends StatefulWidget {
-  const CustomerExtantionCards({
+class CustomExpansionTileFAQ extends StatefulWidget {
+  const CustomExpansionTileFAQ({
     super.key,
     this.leading,
+    this.buttonOffOn,
     required this.title,
     this.subtitle,
     this.backgroundColor,
@@ -28,6 +29,7 @@ class CustomerExtantionCards extends StatefulWidget {
         );
   final Widget? leading;
   final Widget title;
+  final Widget? buttonOffOn;
   final Widget? subtitle;
   final ValueChanged<bool>? onExpansionChanged;
   final List<Widget> children;
@@ -42,10 +44,10 @@ class CustomerExtantionCards extends StatefulWidget {
   final EdgeInsetsGeometry? childrenPadding;
 
   @override
-  State<CustomerExtantionCards> createState() => _CustomExpansionTileFAQState();
+  State<CustomExpansionTileFAQ> createState() => _CustomExpansionTileFAQState();
 }
 
-class _CustomExpansionTileFAQState extends State<CustomerExtantionCards>
+class _CustomExpansionTileFAQState extends State<CustomExpansionTileFAQ>
     with SingleTickerProviderStateMixin {
   static final Animatable<double> _easeOutTween =
       CurveTween(curve: Curves.easeOut);
@@ -124,9 +126,8 @@ class _CustomExpansionTileFAQState extends State<CustomerExtantionCards>
             iconColor: _iconColor.value,
             textColor: _headerColor.value,
             child: GestureDetector(
-              onTap: _handleTap,
+              // onTap: _handleTap,
               child: SizedBox(
-                height: 35.h,
                 child: Card(
                   elevation: 0,
                   child: Row(
@@ -152,9 +153,14 @@ class _CustomExpansionTileFAQState extends State<CustomerExtantionCards>
                                 ),
                               ),
                             ),
-                            RotationTransition(
-                              turns: _iconTurns,
-                              child: widget.trailing,
+                            widget.buttonOffOn ?? SizedBox(),
+                            SizedBox(width: 7,),
+                           GestureDetector(
+                                onTap: _handleTap,
+                              child: RotationTransition(
+                                turns: _iconTurns,
+                                child: widget.trailing,
+                              ),
                             ),
                             const SizedBox(width: 10),
                           ],
