@@ -1,0 +1,155 @@
+
+
+                  CustomerTimeLine(isFirst: true, isLast: false, isPast: true, number: '1', decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(7),
+                    color: Colors.white,
+                    // border: Border.all(color: const Color(0xFFFF6600)),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.3),
+                        offset: const Offset(0, 2),
+                        blurRadius: 12
+                      )
+                    ]
+                  ),
+                  child: Container(
+                    padding: const EdgeInsets.all(5),
+                    // color: Colors.yellow,
+                    child:  Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text("Enregistrement de votre commande fibre",style: TextStyle(color: Colors.black, fontSize: 12.sp,fontWeight: FontWeight.w700),),
+                          Text("Data",style: TextStyle(color: Colors.black, fontSize: 9.sp,fontWeight: FontWeight.w500))
+                        ],
+                      ),
+                        ListTile(
+                        title: Text("Merci d\'avoir fait confiance à Orange CI." 
+                             "Votre commande (Id W4) à l\'offre (offre du client) \n été enregistrée."
+                              "Elle sera traitée dans un délai de\n (précisez le délai selon le SLA de l\'offre).",
+                              style: TextStyle(color: Colors.black,fontSize: 9.sp,fontWeight: FontWeight.w500),
+                              ),
+                        leading: const Icon(Icons.check,color: Colors.green), 
+                        trailing: Text("18/05/2022 13:04:36",style: TextStyle(color: Colors.black,fontSize: 8.sp,fontWeight: FontWeight.w400),),     
+                                  ),
+                       
+
+                       Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          // ElevatedButton(onPressed: (){},
+                          // style: ElevatedButton.styleFrom(
+                          //   backgroundColor: Colors.green.shade200
+                          // ),
+                          //  child:
+                            
+                            // )
+
+                            GestureDetector(
+                              child: Container(
+                                margin: EdgeInsets.symmetric( vertical: 3.h,horizontal: 12.w),
+                                padding: const EdgeInsets.all(5),
+                              
+                                decoration: BoxDecoration(
+                                  color: Colors.green.shade200,
+                                  borderRadius: BorderRadius.circular(3)
+                                ),
+                                child: Text("Terminer",style: TextStyle(color: Colors.black, fontSize: 10.sp,fontWeight: FontWeight.w500 ,))
+                              ),
+                            )
+                        ],
+                       )              
+                    ],
+                  ),
+                  
+                  )
+                  ),
+                  CustomerTimeLine(isFirst: false, isLast: false, isPast: true, number: '2', decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(7),
+                    // border: Border.all(color: const Color(0xFFFF6600)),
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.3),
+                        offset: const Offset(0, 5),
+                        blurRadius: 12
+                      )
+                    ]
+                  ),
+                  child: Container(
+                    margin: EdgeInsets.symmetric(vertical: 5, horizontal: 3),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("Rendez-vous",style: TextStyle(color: Color(0xFF000000),fontSize: 12.sp, fontWeight: FontWeight.w500),),
+                            Text("Data",style: TextStyle(color: Colors.black, fontSize: 9.sp, fontWeight: FontWeight.w500),)
+                          ],
+                        ),
+
+                         ...List.generate(3, (index) =>  Row(
+                                children: [
+                                  Image.asset("assets/icon/Checks.png",height: 20.h,width: 20.w,),
+                                   SizedBox(width: 5.w,),
+                                  Text("Vous serez contacté(e) par un agent sous 24h ouvr.",style: TextStyle(color: Colors.black, fontSize: 9.sp,fontWeight: FontWeight.w400),)
+                                ],
+                              ),).toList(),
+
+                          ...List.generate(1, (index) =>  Row(
+                          children: [
+                            Image.asset("assets/icon/okblue.png",height: 20.h,width: 20.w,),
+                              SizedBox(width: 5.w,),
+                            Text("Nous vous rappelons que votre rendez-vous d\'installation\n est prévu pour cette matinée / cet après-midi.\n Vous recevrez une notification au départ du technicien.",style: TextStyle(color: Colors.black, fontSize: 9.sp,fontWeight: FontWeight.w400),)
+                          ],
+                            ),).toList(),
+
+                           Container(
+                            margin: EdgeInsets.symmetric(horizontal: 20.w),
+                            alignment: Alignment.centerLeft,
+                            child: Text("NB : Pour modifier votre rendez-vous,\n veuillez contacter votre service client au 0909 ou au 2720300909.",
+                           style: TextStyle(color: Colors.black, fontSize: 6.sp,fontWeight: FontWeight.w700),) 
+                           )
+
+
+
+
+                        // Row(
+                        //   children: [
+                          
+                        //   ],
+                        // )
+                      ],
+                    ),
+                  ),
+                  ),
+                  CustomerTimeLine(isFirst: false, isLast: false, isPast: true, number: '3', decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(7),
+                    // border: Border.all(color: const Color(0xFFFF6600)),
+                    color: Colors.white,
+
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.3),
+                        offset: const Offset(0, 5),
+                        blurRadius: 12
+                      )
+                    ]
+
+                  ),),
+                  CustomerTimeLine(isFirst: false, isLast: true, isPast: true, number: '4', decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(7),
+                    // border: Border.all(color: const Color(0xFFFF6600)),
+                    color: Colors.white,
+
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.3),
+                        offset: const Offset(0, 5),
+                        blurRadius: 12
+                      )
+                    ]
+
+                  ),),
+              
